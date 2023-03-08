@@ -2,8 +2,8 @@ export default function Categories() {
 
 
     return (
-        <div>
-            <h1>
+        <div className="categoriesContainer">
+            <h1 className="title">
                 Categories Page
             </h1>
         </div>
