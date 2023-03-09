@@ -12,39 +12,40 @@ export const loadHomeArticles = createAsyncThunk(
 )
 
 
-export const homeArticles = createSlice({
-    name: 'homeArticles',
+export const homeSlice = createSlice({
+    name: 'home',
     initialState: {
         articles: [],
         isLoadingHomeArticles: false,
         failedToLoadHomeArticles: false
     },
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(loadHomeArticles.pending, (state) => {
                 state.isLoadingHomeArticles = true;
-                state.failedToLoadHomeArticles = false
+                state.failedToLoadHomeArticles = false;
             })
             .addCase(loadHomeArticles.fulfilled, (state, action) => {
                 state.isLoadingHomeArticles = false;
                 state.failedToLoadHomeArticles = false;
                 //------fix state logic to add articles-----------
-                state.articles.push(action.payload.data.children[0].data);
-                state.articles.push(action.payload.data.children[1].data);
-                console.log(action.payload.data.children[0].data);
+                state.articles = action.payload.data.children;
+                console.log('Fulfilled');
+                console.log(action.payload.data.children);
                 console.log(state.articles);
-                console.log(state.articles[0].title)
             })
             .addCase(loadHomeArticles.rejected, (state) => {
                 state.isLoadingHomeArticles = false;
                 state.failedToLoadHomeArticles = true;
-                state.articles = []
+                state.articles = [];
+                console.log('Failed');
             })
     }
-})
+});
 
 
-export const selectHomeArticles = (state) => state.articles;
-export const isLoadingHomeArticles = (state) => state.isLoadingHomeArticles;
-export const failedToLoadHomeArticles = (state) => state.failedToLoadHomeArticles;
-export default homeArticles.reducer;
+export const selectHomeArticles = (state) => state.home.articles;
+export const isLoadingHomeArticles = (state) => state.home.isLoadingHomeArticles;
+export const failedToLoadHomeArticles = (state) => state.home.failedToLoadHomeArticles;
+export default homeSlice.reducer;
