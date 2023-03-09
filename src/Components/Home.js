@@ -6,21 +6,22 @@ import {
     isLoadingHomeArticles,
     failedToLoadHomeArticles
 } from "./homeSlice";
+import DisplayArticle from "./DisplayArticle";
 
 
 export default function Home() {
 
     const dispatch = useDispatch();
-    const article = useSelector(selectHomeArticles);
+    const articles = useSelector(selectHomeArticles);
     const isLoading = useSelector(isLoadingHomeArticles);
     const failedToLoad = useSelector(failedToLoadHomeArticles);
 
     
     useEffect(() => {
-        if (article.length === 0) {
+        if (articles.length === 0) {
         dispatch(loadHomeArticles());
         }
-    }, [dispatch, article.length]);
+    }, [dispatch, articles.length]);
     
 
 
@@ -36,7 +37,7 @@ export default function Home() {
         )
     };
 
-    if (article.length === 0) {
+    if (articles.length === 0) {
         return null;
     }
 
@@ -46,7 +47,13 @@ export default function Home() {
                 Home Page
             </h1>
             <div className="previewContainer">
-                {article[0].data.title}
+                {articles.map(article => {
+                    return (
+                        <div key={article.data.id} className="articleContainer">
+                            <DisplayArticle article={article} />
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )
