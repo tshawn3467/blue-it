@@ -1,5 +1,5 @@
 const routes = {
-    home: () => "/home",
+    home: () => "/",
     categories: () => "/categories",
     thirdThing: () => "/thirdThing",
     fourthThing: () => "fourthThing"

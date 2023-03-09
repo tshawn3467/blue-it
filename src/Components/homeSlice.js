@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 
 export const loadHomeArticles = createAsyncThunk(
-    'homeArticles/loadHomeArticles',
+    'home/loadHomeArticles',
     async() => {
         const response = await fetch('https://www.reddit.com/r/popular.json')
         const data = await response.json();
@@ -30,10 +30,8 @@ export const homeSlice = createSlice({
                 state.isLoadingHomeArticles = false;
                 state.failedToLoadHomeArticles = false;
                 //------fix state logic to add articles-----------
-                state.articles = action.payload.data.children;
+                state.articles = [action.payload.data.children[0],action.payload.data.children[1]];
                 console.log('Fulfilled');
-                console.log(action.payload.data.children);
-                console.log(state.articles);
             })
             .addCase(loadHomeArticles.rejected, (state) => {
                 state.isLoadingHomeArticles = false;

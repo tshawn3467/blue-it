@@ -15,11 +15,14 @@ export default function Home() {
     const isLoading = useSelector(isLoadingHomeArticles);
     const failedToLoad = useSelector(failedToLoadHomeArticles);
 
-    /*-------fix to implement dispatch(loadHomeArticles)
+    
     useEffect(() => {
-        if (article)
-    }, [dispatch]);
-    */
+        if (article.length === 0) {
+        dispatch(loadHomeArticles());
+        }
+    }, [dispatch, article.length]);
+    
+
 
     if (isLoading) {
         return (
@@ -33,13 +36,17 @@ export default function Home() {
         )
     };
 
+    if (article.length === 0) {
+        return null;
+    }
+
     return (
         <div className="homeContainer">
             <h1 className="title">
                 Home Page
             </h1>
             <div className="previewContainer">
-                {console.log(article)}
+                {article[0].data.title}
             </div>
         </div>
     )
