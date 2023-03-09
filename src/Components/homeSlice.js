@@ -29,9 +29,10 @@ export const homeSlice = createSlice({
             .addCase(loadHomeArticles.fulfilled, (state, action) => {
                 state.isLoadingHomeArticles = false;
                 state.failedToLoadHomeArticles = false;
-                //------add only first two articles-----------
-                state.articles = [action.payload.data.children[0],action.payload.data.children[1]];
+                //------add only two articles?-----------
+                state.articles = [action.payload.data.children[0],action.payload.data.children[8]];
                 console.log('Fulfilled');
+                console.log(action.payload.data.children);
             })
             .addCase(loadHomeArticles.rejected, (state) => {
                 state.isLoadingHomeArticles = false;
