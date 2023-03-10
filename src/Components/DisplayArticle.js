@@ -24,24 +24,28 @@ export default function DisplayArticle({ article }) {
                     
                 */
                 //-----display article with image-----
-                <div className="article">
-                    <span className="articleSubAndAuthor">
-                        {article.data.subreddit_name_prefixed} : Posted by {article.data.author}
-                    </span>
-                    <h3 className="articleTitle">{article.data.title}</h3>
-                    <img className="articleImage" src={article.data.thumbnail} alt="Not Found" ></img>
-                    
-                </div>
+                <a href={article.data.url} className='articleLink' >
+                    <div className="article">
+                        <span className="articleSubAndAuthor">
+                            {article.data.subreddit_name_prefixed} : Posted by {article.data.author}
+                        </span>
+                        <h3 className="articleTitle">{article.data.title}</h3>
+                        <img className="articleImage" src={article.data.thumbnail} alt="Not Found" ></img>
+                        
+                    </div>
+                </a>
             );
         case 'self':
             return (
                 //-----display article with no image or video-----
-                <div className="article">
-                    <span className="articleSubAndAuthor">
-                        {article.data.subreddit_name_prefixed} : Posted by {article.data.author}
-                    </span>
-                    <h3 className="articleTitle">{article.data.title}</h3>
-                </div>
+                <a href={article.data.url} className='articleLink' >
+                    <div className="article">
+                        <span className="articleSubAndAuthor">
+                            {article.data.subreddit_name_prefixed} : Posted by {article.data.author}
+                        </span>
+                        <h3 className="articleTitle">{article.data.title}</h3>
+                    </div>
+                </a>
             );
         case 'video':
             return (
@@ -49,20 +53,22 @@ export default function DisplayArticle({ article }) {
 
                 */
                 //-----display article with video-------
-                <div className="article">
-                    <span className="articleSubAndAuthor">
-                        {article.data.subreddit_name_prefixed} : Posted by {article.data.author}
-                    </span>
-                    <h3 className="articleTitle">{article.data.title}</h3>
-                    <video className="articleVideo" 
-                        controls  
-                        controlsList="nodownload noremoteplayback"
-                        disablePictureInPicture
-                        src={article.data.media.reddit_video.fallback_url}                
-                        >
-                    
-                    </video>
-                </div>
+                <a href={article.data.url} className='articleLink' >
+                    <div className="article">
+                        <span className="articleSubAndAuthor">
+                            {article.data.subreddit_name_prefixed} : Posted by {article.data.author}
+                        </span>
+                        <h3 className="articleTitle">{article.data.title}</h3>
+                        <video className="articleVideo" 
+                            controls  
+                            controlsList="nodownload noremoteplayback"
+                            disablePictureInPicture
+                            src={article.data.media.reddit_video.fallback_url}                
+                            >
+                        
+                        </video>
+                    </div>
+                </a>
             );
         default:
             return (

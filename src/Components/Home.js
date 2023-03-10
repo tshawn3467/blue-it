@@ -27,13 +27,13 @@ export default function Home() {
 
     if (isLoading) {
         return (
-            <div>Loading...</div>
+            <div className="loading">Loading...</div>
         )
     };
 
     if (failedToLoad) {
         return (
-            <div>Something Went Wrong</div>
+            <div className="failedToLoad">Something Went Wrong</div>
         )
     };
 
@@ -43,9 +43,12 @@ export default function Home() {
 
     return (
         <div className="homeContainer">
-            <h1 className="title">
-                Home Page
-            </h1>
+            {/*-------make div container for titles---------*/}
+            <div className="titleContainer" >
+                <h1 className="title">
+                    Home Page
+                </h1>
+            </div>
             <div className="previewContainer">
                 {articles.map(article => {
                     return (
