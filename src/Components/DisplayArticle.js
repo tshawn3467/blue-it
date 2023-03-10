@@ -7,50 +7,58 @@ export default function DisplayArticle({ article }) {
     if (article.data.is_video) {
         typeOfArticle = 'video';
     };
-    if (article.data.is_self) {
+    if (article.data.is_self || article.data.thumbnail === 'default') {
         typeOfArticle = 'self';
     };
 
     switch (typeOfArticle) {
         case 'image':
             return (
-                //-----display article data like reddit article(..ish)-----
-                <div>
+                /*
+                    article.data.preview.images[0].source.url
+                        ^-Doesn't workdue to 403 access forbidden
+                    article.data.thumbnail
+                        ^-Small probably used for smaller screen res
+                        ^-Bad res when made larger
+                    
+                    
+                */
+                //-----display article with image-----
+                <div className="article">
                     <span className="articleSubAndAuthor">
                         {article.data.subreddit_name_prefixed} : Posted by {article.data.author}
                     </span>
-                    <h3>{article.data.title}</h3>
-                    <img src={article.data.thumbnail} alt="Not Found" ></img>
+                    <h3 className="articleTitle">{article.data.title}</h3>
+                    <img className="articleImage" src={article.data.thumbnail} alt="Not Found" ></img>
+                    
                 </div>
             );
         case 'self':
             return (
-                //-----display article data like reddit article(..ish)-----
-                <div>
+                //-----display article with no image or video-----
+                <div className="article">
                     <span className="articleSubAndAuthor">
                         {article.data.subreddit_name_prefixed} : Posted by {article.data.author}
                     </span>
-                    <h3>{article.data.title}</h3>
+                    <h3 className="articleTitle">{article.data.title}</h3>
                 </div>
             );
         case 'video':
             return (
-                /*  Which url for video src? Is there another/original?
-                        article.data.media.reddit_video.fallback_url
-                        article.data.media.reddit_video.scrubber_media_url
-                    Adjust video height/width here or css?
+                /* 
+
                 */
-                //-----display article data like reddit article(..ish)-----
-                <div>
+                //-----display article with video-------
+                <div className="article">
                     <span className="articleSubAndAuthor">
                         {article.data.subreddit_name_prefixed} : Posted by {article.data.author}
                     </span>
-                    <h3>{article.data.title}</h3>
-                    <video className="homeArticleVideo" 
+                    <h3 className="articleTitle">{article.data.title}</h3>
+                    <video className="articleVideo" 
                         controls  
-                        controlsList="nodownload nofullscreen noremoteplayback"
+                        controlsList="nodownload noremoteplayback"
                         disablePictureInPicture
-                        src={article.data.media.reddit_video.scrubber_media_url}                
+                        src={article.data.media.reddit_video.fallback_url}                
                         >
                     
                     </video>
