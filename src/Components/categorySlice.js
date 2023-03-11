@@ -5,7 +5,18 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
     single topic url ex: /t/gaming/   /t/sports/  ...
 
     create logic for random selection of topics/categories
+    (26 options; 27 with # option)
+    fit 8 per container
 */
+
+function randomCategory() {
+    const randomNumber = Math.floor(Math.random() * 27);
+    let alphabet = [];
+    
+    for (let i=0; i<27; i++) {
+        alphabet.push(i);
+    }
+}
 
 export const loadCategories = createAsyncThunk(
     'category/loadCategories',

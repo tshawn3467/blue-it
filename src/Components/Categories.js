@@ -16,9 +16,24 @@ export default function Categories() {
                 single topic url ex: /t/gaming/   /t/sports/  ...
             */}
             <div className="categoryContainer" >
-                <div className="category">
-                    
-                </div>
+                <ul className="categoryList">
+                    <li>
+                        <div className="category">
+                        <span>-----Topic-----</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="category">
+                        <span>A nightmare on elm street 4: the 2004 movie</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="category">
+                        <span>Adventure time the secret of the nameless kingdom</span>
+                        </div>
+                    </li>
+                </ul>
+                
             </div>
             <div className="categoryContainer" >
 
