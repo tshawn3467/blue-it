@@ -106,28 +106,10 @@ body {
     color: black;
 }
 
-.categoriesContainer {
+.thirdThingContainer {
     display: flex;
     position: relative;
     top: 6.9rem;
     flex-wrap: wrap;
     justify-content: space-evenly;
-}
-
-.categoryContainer {
-    display: flex;
-    height: 40rem;
-    width: 25%;
-    background-color: white;
-    border: 2px solid black;
-    margin: 1rem;
-    flex-direction: column;
-}
-
-.category {
-    height: 3rem;
-    width: 85%;
-    margin: .5rem;
-    padding: .25rem;
-    border: 2px solid black;
 }

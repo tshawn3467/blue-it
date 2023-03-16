@@ -14,11 +14,6 @@ export default function Header() {
                         Home
                     </li>
                 </NavLink>
-                <NavLink to={routes.categories()} className="navLink">
-                    <li className="headerListItem">
-                        Categories
-                    </li>
-                </NavLink>
             </ul>
 
             <img className="logo" src={require("../Data/BlueItLogo.png")} alt="Not Found" />
@@ -26,12 +21,7 @@ export default function Header() {
             <ul className="headerRight">
                 <NavLink to={routes.thirdThing()} className="navLink">
                     <li className="headerListItem">
-                        Third Thing
-                    </li>
-                </NavLink>
-                <NavLink to={routes.fourthThing()} className="navLink">
-                    <li className="headerListItem">
-                        Fourth Thing
+                        Something
                     </li>
                 </NavLink>
             </ul>

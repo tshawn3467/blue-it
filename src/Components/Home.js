@@ -46,7 +46,7 @@ export default function Home() {
             {/*-------make div container for titles---------*/}
             <div className="titleContainer" >
                 <h1 className="title">
-                    Home Page
+                    Home Page/SearchBar?
                 </h1>
             </div>
             <div className="previewContainer">

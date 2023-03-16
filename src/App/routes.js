@@ -1,8 +1,6 @@
 const routes = {
     home: () => "/",
-    categories: () => "/categories",
-    thirdThing: () => "/thirdThing",
-    fourthThing: () => "fourthThing"
+    thirdThing: () => "/ThirdThing",
 };
 
 export {routes};

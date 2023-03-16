@@ -24,51 +24,58 @@ export default function DisplayArticle({ article }) {
                     
                 */
                 //-----display article with image-----
-                <a href={article.data.url} className='articleLink' >
+                
                     <div className="article">
                         <span className="articleSubAndAuthor">
-                            {article.data.subreddit_name_prefixed} : Posted by {article.data.author}
+                           <a href={`https://www.reddit.com/${article.data.subreddit_name_prefixed}`}> {article.data.subreddit_name_prefixed}</a> : Posted by {article.data.author}
                         </span>
-                        <h3 className="articleTitle">{article.data.title}</h3>
-                        <img className="articleImage" src={article.data.thumbnail} alt="Not Found" ></img>
-                        
+                        <a href={article.data.url} className='articleLink' >
+                            <div>
+                                <h3 className="articleTitle">{article.data.title}</h3>
+                                <img className="articleImage" src={article.data.thumbnail} alt="Not Found" ></img>
+                            </div>
+                        </a>
                     </div>
-                </a>
             );
         case 'self':
             return (
                 //-----display article with no image or video-----
-                <a href={article.data.url} className='articleLink' >
+                
                     <div className="article">
                         <span className="articleSubAndAuthor">
-                            {article.data.subreddit_name_prefixed} : Posted by {article.data.author}
+                        <a href={`https://www.reddit.com/${article.data.subreddit_name_prefixed}`}> {article.data.subreddit_name_prefixed}</a> : Posted by {article.data.author}
                         </span>
-                        <h3 className="articleTitle">{article.data.title}</h3>
+                        <a href={article.data.url} className='articleLink' >
+                            <div>
+                                <h3 className="articleTitle">{article.data.title}</h3>
+                            </div>
+                        </a>
                     </div>
-                </a>
             );
         case 'video':
             return (
-                /* 
-
-                */
                 //-----display article with video-------
-                <a href={article.data.url} className='articleLink' >
+                
                     <div className="article">
                         <span className="articleSubAndAuthor">
-                            {article.data.subreddit_name_prefixed} : Posted by {article.data.author}
-                        </span>
-                        <h3 className="articleTitle">{article.data.title}</h3>
-                        <video className="articleVideo" 
-                            controls  
-                            controlsList="nodownload noremoteplayback"
-                            disablePictureInPicture
-                            src={article.data.media.reddit_video.fallback_url}                
-                            >
-                        
-                        </video>
+                        <a href={`https://www.reddit.com/${article.data.subreddit_name_prefixed}`}> {article.data.subreddit_name_prefixed}</a> : Posted by {article.data.author}
+                        </span>            
+                            <div>
+                            <a href={article.data.url} className='articleLink' >
+                                <h3 className="articleTitle">{article.data.title}</h3>
+                            </a>    
+                                <video className="articleVideo" 
+                                    playsInline
+                                    
+                                    controls  
+                                    controlsList="nodownload noremoteplayback"
+                                    disablePictureInPicture
+                                    src={article.data.media.reddit_video.fallback_url}                
+                                >
+                                
+                                </video>
+                            </div>                        
                     </div>
-                </a>
             );
         default:
             return (

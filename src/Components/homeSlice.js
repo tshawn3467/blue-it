@@ -31,6 +31,8 @@ export const homeSlice = createSlice({
                 state.failedToLoadHomeArticles = false;
                 //------add articles from popular page-----------
                 state.articles = action.payload.data.children;
+                //----------console logging to test and for info----------------
+                console.log(action.payload.data.children);
                 console.log('Fulfilled');
             })
             .addCase(loadHomeArticles.rejected, (state) => {
