@@ -19,7 +19,7 @@ export default function Header() {
             <img className="logo" src={require("../Data/BlueItLogo.png")} alt="Not Found" />
 
             <ul className="headerRight">
-                <NavLink to={routes.thirdThing()} className="navLink">
+                <NavLink to={routes.displayPage()} className="navLink">
                     <li className="headerListItem">
                         Something
                     </li>

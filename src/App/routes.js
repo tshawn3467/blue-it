@@ -1,6 +1,6 @@
 const routes = {
     home: () => "/",
-    thirdThing: () => "/ThirdThing",
+    displayPage: () => "/DisplayPage",
 };
 
 export {routes};

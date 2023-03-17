@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
 import Header from '../Components/Header';
 import Home from '../Components/Home';
-import ThirdThing from '../Components/ThirdThing';
+import DisplayPage from '../Components/DisplayPage';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
 
       <Routes>
         <Route index element={<Home />}></Route>
-        <Route path='/ThirdThing' element={<ThirdThing />}></Route>       
+        <Route path='/DisplayPage' element={<DisplayPage />}></Route>       
       </Routes>
     </Router>
   );

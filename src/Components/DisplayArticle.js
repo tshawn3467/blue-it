@@ -29,7 +29,7 @@ export default function DisplayArticle({ article }) {
                         <span className="articleSubAndAuthor">
                            <a href={`https://www.reddit.com/${article.data.subreddit_name_prefixed}`}> {article.data.subreddit_name_prefixed}</a> : Posted by {article.data.author}
                         </span>
-                        <a href={article.data.url} className='articleLink' >
+                        <a href={`https://www.reddit.com${article.data.permalink}`} className='articleLink' >
                             <div>
                                 <h3 className="articleTitle">{article.data.title}</h3>
                                 <img className="articleImage" src={article.data.thumbnail} alt="Not Found" ></img>
