@@ -5,8 +5,17 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const loadHomeArticles = createAsyncThunk(
     'home/loadHomeArticles',
     async() => {
-        const response = await fetch('https://www.reddit.com/r/popular.json')
+        const response = await fetch('https://www.reddit.com/r/popular.json');
         const data = await response.json();
+        return data;
+    }
+)
+
+export const loadSearchResults = createAsyncThunk(
+    'home/loadSearchResults',
+    async(searchTerm) => {
+        const response = await fetch(`https://www.reddit.com/search.json?q=${searchTerm}%20recipes`);
+        const data = await response.json()
         return data;
     }
 )
@@ -36,6 +45,25 @@ export const homeSlice = createSlice({
                 console.log('Fulfilled');
             })
             .addCase(loadHomeArticles.rejected, (state) => {
+                state.isLoadingHomeArticles = false;
+                state.failedToLoadHomeArticles = true;
+                state.articles = [];
+                console.log('Failed');
+            })
+            .addCase(loadSearchResults.pending, (state) => {
+                state.isLoadingHomeArticles = true;
+                state.failedToLoadHomeArticles = false;
+            })
+            .addCase(loadSearchResults.fulfilled, (state, action) => {
+                state.isLoadingHomeArticles = false;
+                state.failedToLoadHomeArticles = false;
+                //------add articles from search page-----------
+                state.articles = action.payload.data.children;
+                //----------console logging to test and for info----------------
+                console.log(action.payload.data.children);
+                console.log('Fulfilled');
+            })
+            .addCase(loadSearchResults.rejected, (state) => {
                 state.isLoadingHomeArticles = false;
                 state.failedToLoadHomeArticles = true;
                 state.articles = [];

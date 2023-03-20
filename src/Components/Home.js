@@ -4,7 +4,8 @@ import {
     loadHomeArticles, 
     selectHomeArticles,
     isLoadingHomeArticles,
-    failedToLoadHomeArticles
+    failedToLoadHomeArticles,
+    loadSearchResults
 } from "./homeSlice";
 import DisplayArticle from "./DisplayArticle";
 
@@ -23,7 +24,11 @@ export default function Home() {
         }
     }, [dispatch, articles.length]);
     
-
+    const searchHandler = (searchTerm) => {
+        
+        console.log(searchTerm);
+        //dispatch(loadSearchResults(searchTerm));
+    }
 
     if (isLoading) {
         return (
@@ -44,10 +49,9 @@ export default function Home() {
     return (
         <div className="homeContainer">
             {/*-------make div container for titles---------*/}
-            <div className="titleContainer" >
-                <h1 className="title">
-                    Home Page/SearchBar?
-                </h1>
+            <div className="titleContainer" >                                      { /* get this working */ }
+                <input type='search' placeholder="Search Reddit" className="title" name="q" onChange={() => { searchTerm = value }}  />
+                <button className="searchButton">Search</button>
             </div>
             <div className="previewContainer">
                 {articles.map(article => {
