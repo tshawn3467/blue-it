@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { 
     loadHomeArticles, 
     selectHomeArticles,
+    selectSearchTerm,
     isLoadingHomeArticles,
     failedToLoadHomeArticles,
-    loadSearchResults
+    loadSearchResults,
+    setSearchTermState,
 } from "./homeSlice";
 import DisplayArticle from "./DisplayArticle";
 
@@ -14,8 +16,10 @@ export default function Home() {
 
     const dispatch = useDispatch();
     const articles = useSelector(selectHomeArticles);
+    const searchTerm = useSelector(selectSearchTerm);
     const isLoading = useSelector(isLoadingHomeArticles);
     const failedToLoad = useSelector(failedToLoadHomeArticles);
+
 
     
     useEffect(() => {
@@ -24,10 +28,13 @@ export default function Home() {
         }
     }, [dispatch, articles.length]);
     
-    const searchHandler = (searchTerm) => {
-        
-        console.log(searchTerm);
-        //dispatch(loadSearchResults(searchTerm));
+    const onClickSearch = () => {
+        dispatch(loadSearchResults(searchTerm));
+    }
+
+    const onChangeSearch = (e) => {
+        const searchTerm = e.target.value;
+        dispatch(setSearchTermState(searchTerm));
     }
 
     if (isLoading) {
@@ -49,9 +56,9 @@ export default function Home() {
     return (
         <div className="homeContainer">
             {/*-------make div container for titles---------*/}
-            <div className="titleContainer" >                                      { /* get this working */ }
-                <input type='search' placeholder="Search Reddit" className="title" name="q" onChange={() => { searchTerm = value }}  />
-                <button className="searchButton">Search</button>
+            <div className="searchBarContainer" >                                      { /* get this working */ }
+                <input type='search' placeholder="Search Reddit" className="searchBar" name="q" onChange={ onChangeSearch }  />
+                <button className="searchButton" onClick={ onClickSearch }>Search</button>
             </div>
             <div className="previewContainer">
                 {articles.map(article => {

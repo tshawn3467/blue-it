@@ -11,6 +11,7 @@ export const loadHomeArticles = createAsyncThunk(
     }
 )
 
+
 export const loadSearchResults = createAsyncThunk(
     'home/loadSearchResults',
     async(searchTerm) => {
@@ -25,10 +26,15 @@ export const homeSlice = createSlice({
     name: 'home',
     initialState: {
         articles: [],
+        searchTerm: "",
         isLoadingHomeArticles: false,
         failedToLoadHomeArticles: false
     },
-    reducers: {},
+    reducers: {
+        setSearchTermState(state, action) {
+            state.searchTerm = action.payload;
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(loadHomeArticles.pending, (state) => {
@@ -74,6 +80,8 @@ export const homeSlice = createSlice({
 
 
 export const selectHomeArticles = (state) => state.home.articles;
+export const selectSearchTerm = (state) => state.home.searchTerm;
 export const isLoadingHomeArticles = (state) => state.home.isLoadingHomeArticles;
 export const failedToLoadHomeArticles = (state) => state.home.failedToLoadHomeArticles;
+export const { setSearchTermState } = homeSlice.actions;
 export default homeSlice.reducer;

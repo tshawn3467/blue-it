@@ -40,7 +40,6 @@ body {
 
 .logo {
     height: 6rem;
-    margin: 0 5rem;
 }
 
 .headerRight {
@@ -69,6 +68,40 @@ body {
     color: black;
     margin: 0;
     background-color: white;    
+}
+
+.searchBarContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    position: relative;
+    top: 1rem;
+    flex-direction: column;
+    align-items: center; 
+    min-width: 35.8rem;
+}
+
+.searchBar {
+    text-align: center;
+    width: 20%;
+    min-width: 20rem;
+    height: 1.5rem;
+    margin: 0;
+    background-color: white;    
+}
+
+.searchButton {
+    border: 1px solid black;
+    border-radius: .5rem;
+    margin-top: .5rem;
+}
+
+.searchButton:hover {
+    cursor: pointer;
+}
+
+.searchButton:active {
+    background-color: rgb(201, 199, 199);
 }
 
 .previewContainer {
@@ -106,7 +139,7 @@ body {
     color: black;
 }
 
-.thirdThingContainer {
+.displayPageContainer {
     display: flex;
     position: relative;
     top: 6.9rem;

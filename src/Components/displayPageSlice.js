@@ -20,7 +20,7 @@ export const loadDisplayPageArticles = createAsyncThunk(
 export const displayPageSlice = createSlice({
     name: 'displayPage',
     initialState: {
-        articles: [],
+        articles: ["test"],
         isLoadingDisplayPageArticles: false,
         failedToLoadDisplayPageArticles: false
     },

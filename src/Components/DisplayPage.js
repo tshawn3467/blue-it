@@ -41,9 +41,10 @@ export default function DisplayPage() {
             {/*-------make div container for titles---------*/}
             <div className="titleContainer" >
                 <h1 className="title">
-                    Home Page/SearchBar?
+                    Display Page
                 </h1>
             </div>
+            {/*--------Not Working Yet -------------
             <div className="previewContainer">
                 {articles.map(article => {
                     return (
@@ -53,6 +54,7 @@ export default function DisplayPage() {
                     )
                 })}
             </div>
+            */}
         </div>
     )
 }

@@ -24,7 +24,6 @@ export default function DisplayArticle({ article }) {
                     
                 */
                 //-----display article with image-----
-                
                     <div className="article">
                         <span className="articleSubAndAuthor">
                            <a href={`https://www.reddit.com/${article.data.subreddit_name_prefixed}`}> {article.data.subreddit_name_prefixed}</a> : Posted by {article.data.author}
@@ -35,6 +34,9 @@ export default function DisplayArticle({ article }) {
                                 <img className="articleImage" src={article.data.thumbnail} alt="Not Found" ></img>
                             </div>
                         </a>
+                        <div className='articleWhitespaceBottom' >
+                                {/* style for whitespace so looks more appealing */}
+                        </div>
                     </div>
             );
         case 'self':
@@ -48,6 +50,9 @@ export default function DisplayArticle({ article }) {
                         <a href={article.data.url} className='articleLink' >
                             <div>
                                 <h3 className="articleTitle">{article.data.title}</h3>
+                            </div>
+                            <div className='articleWhitespaceBottom' >
+                                {/* style for whitespace so looks more appealing */}
                             </div>
                         </a>
                     </div>
@@ -74,7 +79,10 @@ export default function DisplayArticle({ article }) {
                                 >
                                 
                                 </video>
-                            </div>                        
+                            </div>  
+                            <div className='articleWhitespaceBottom' >
+                                {/* style for whitespace so looks more appealing */}
+                            </div>                      
                     </div>
             );
         default:
