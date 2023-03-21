@@ -55,7 +55,6 @@ export default function Home() {
 
     return (
         <div className="homeContainer">
-            {/*-------make div container for titles---------*/}
             <div className="searchBarContainer" >
                 <input type='search' placeholder="Search Reddit" className="searchBar" name="q" onChange={ onChangeSearch }  />
                 <button className="searchButton" onClick={ onClickSearch }>Search</button>

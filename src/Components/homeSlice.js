@@ -65,15 +65,11 @@ export const homeSlice = createSlice({
                 state.failedToLoadHomeArticles = false;
                 //------add articles from search page-----------
                 state.articles = action.payload.data.children;
-                //----------console logging to test and for info----------------
-                console.log(action.payload.data.children);
-                console.log('Fulfilled');
             })
             .addCase(loadSearchResults.rejected, (state) => {
                 state.isLoadingHomeArticles = false;
                 state.failedToLoadHomeArticles = true;
                 state.articles = [];
-                console.log('Failed');
             })
     }
 });

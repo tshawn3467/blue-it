@@ -67,7 +67,10 @@ body {
     text-align: center;
     color: black;
     margin: 0;
-    background-color: white;    
+    width: 22%;
+    border: 1px solid black;
+    border-radius: 1rem;
+    background-color: white; 
 }
 
 .searchBarContainer {

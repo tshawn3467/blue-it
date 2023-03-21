@@ -1,7 +1,7 @@
 import React from "react";
 import { routes } from "../App/routes";
 import { useDispatch } from "react-redux";
-import { setSubredditUrlState } from "./displayPageSlice";
+import { loadSingleArticle, setSubredditUrlState } from "./displayPageSlice";
 import { NavLink } from "react-router-dom";
 
 
@@ -11,6 +11,10 @@ export default function DisplayArticle({ article }) {
 
     const urlClickedHandler = (e) => {
         dispatch(setSubredditUrlState(e.target.id));
+    }
+
+    const articleClickedHandler = () => {
+        dispatch(loadSingleArticle(article));
     }
     
 
@@ -39,12 +43,12 @@ export default function DisplayArticle({ article }) {
                         <span className="articleSubAndAuthor">
                            <NavLink id={article.data.subreddit_name_prefixed} to={routes.displayPage()} onClick={urlClickedHandler} > {article.data.subreddit_name_prefixed} </NavLink> : Posted by {article.data.author}
                         </span>
-                        <a href={`https://www.reddit.com${article.data.permalink}`} className='articleLink' >
+                        <NavLink to={routes.displayPage()} onClick={articleClickedHandler} className='articleLink' >
                             <div>
                                 <h3 className="articleTitle">{article.data.title}</h3>
                                 <img className="articleImage" src={article.data.thumbnail} alt="Not Found" ></img>
                             </div>
-                        </a>
+                        </NavLink>
                         <div className='articleWhitespaceBottom' >
                                 {/* style for whitespace so looks more appealing */}
                         </div>
@@ -58,14 +62,14 @@ export default function DisplayArticle({ article }) {
                         <span className="articleSubAndAuthor">
                         <NavLink id={article.data.subreddit_name_prefixed} to={routes.displayPage()} onClick={urlClickedHandler} > {article.data.subreddit_name_prefixed}</NavLink> : Posted by {article.data.author}
                         </span>
-                        <a href={article.data.url} className='articleLink' >
+                        <NavLink to={routes.displayPage()} onClick={articleClickedHandler} className='articleLink' >
                             <div>
                                 <h3 className="articleTitle">{article.data.title}</h3>
                             </div>
                             <div className='articleWhitespaceBottom' >
                                 {/* style for whitespace so looks more appealing */}
                             </div>
-                        </a>
+                        </NavLink>
                     </div>
             );
         case 'video':
@@ -77,9 +81,9 @@ export default function DisplayArticle({ article }) {
                         <NavLink id={article.data.subreddit_name_prefixed} to={routes.displayPage()} onClick={urlClickedHandler} > {article.data.subreddit_name_prefixed}</NavLink> : Posted by {article.data.author}
                         </span>            
                             <div>
-                            <a href={article.data.url} className='articleLink' >
+                            <NavLink to={routes.displayPage()} onClick={articleClickedHandler} className='articleLink' >
                                 <h3 className="articleTitle">{article.data.title}</h3>
-                            </a>    
+                            </NavLink>    
                                 <video className="articleVideo" 
                                     playsInline
                                     

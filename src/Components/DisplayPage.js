@@ -7,7 +7,10 @@ import {
     isLoadingDisplayPageArticles,
     failedToLoadDisplayPageArticles,
     loadSubredditArticles,
-    selectSubredditUrl
+    selectSubredditUrl,
+    loadSearchResults,
+    selectSearchTerm,
+    setSearchTermState
 } from './displayPageSlice';
 
 
@@ -18,7 +21,7 @@ export default function DisplayPage() {
     const isLoading = useSelector(isLoadingDisplayPageArticles);
     const failedToLoad = useSelector(failedToLoadDisplayPageArticles);
     const subredditUrl = useSelector(selectSubredditUrl);
-
+    const searchTerm = useSelector(selectSearchTerm);
     
 
     
@@ -27,6 +30,15 @@ export default function DisplayPage() {
         dispatch(loadSubredditArticles(subredditUrl));
         }
     }, [dispatch, displayPageArticles.length, subredditUrl]);
+
+    const onClickSearch = () => {
+        dispatch(loadSearchResults(searchTerm));
+    }
+
+    const onChangeSearch = (e) => {
+        const searchTerm = e.target.value;
+        dispatch(setSearchTermState(searchTerm));
+    }
     
 
     if (isLoading) {
@@ -48,11 +60,9 @@ export default function DisplayPage() {
 
     return (
         <div className="displayPageContainer">
-            {/*-------make div container for titles---------*/}
-            <div className="titleContainer" >
-                <h1 className="title">
-                    Display Page
-                </h1>
+            <div className="searchBarContainer" >
+                <input type='search' placeholder="Search Reddit" className="searchBar" name="q" onChange={ onChangeSearch }  />
+                <button className="searchButton" onClick={ onClickSearch }>Search</button>
             </div>
             <div className="previewContainer">
                 

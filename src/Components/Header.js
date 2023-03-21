@@ -28,7 +28,7 @@ export default function Header() {
             <ul className="headerRight">
                 <NavLink to={routes.displayPage()} className="navLink">
                     <li className="headerListItem">
-                        Something
+                        Lounge
                     </li>
                 </NavLink>
             </ul>
