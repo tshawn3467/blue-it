@@ -124,13 +124,13 @@ body {
 }
 
 .articleImage {
-    height: 8rem;
-    width: 14rem;
+    height: 100%;
+    width: 100%;
 }
 
 .articleVideo {
-    height: 24rem;
-    width: 35rem;
+    height: 100%;
+    width: 100%;
 }
 
 .articleTitle {
@@ -143,7 +143,7 @@ body {
 }
 
 .articleBody {
-    margin-bottom: .5rem;
+    margin: 1rem;
 }
 
 .displayPageContainer {
@@ -195,3 +195,4 @@ body {
 .commentBody {
     margin: .5rem;
 }
+

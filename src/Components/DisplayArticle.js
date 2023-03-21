@@ -46,12 +46,11 @@ export default function DisplayArticle({ article }) {
                         <NavLink to={routes.displayPage()} onClick={articleClickedHandler} className='articleLink' >
                             <div className="articleBody">
                                 <h3 className="articleTitle">{article.data.title}</h3>
-                                <img className="articleImage" src={article.data.thumbnail} alt="Not Found" ></img>
+                                <div className="mediaContainer">
+                                    <img className="articleImage" src={article.data.url} alt="Not Found" ></img>
+                                </div>
                             </div>
                         </NavLink>
-                        <div className='articleWhitespaceBottom' >
-                                {/* style for whitespace so looks more appealing */}
-                        </div>
                     </div>
             );
         case 'self':
@@ -65,9 +64,6 @@ export default function DisplayArticle({ article }) {
                         <NavLink to={routes.displayPage()} onClick={articleClickedHandler} className='articleLink' >
                             <div className="articleBody">
                                 <h3 className="articleTitle">{article.data.title}</h3>
-                            </div>
-                            <div className='articleWhitespaceBottom' >
-                                {/* style for whitespace so looks more appealing */}
                             </div>
                         </NavLink>
                     </div>
@@ -84,25 +80,24 @@ export default function DisplayArticle({ article }) {
                             <NavLink to={routes.displayPage()} onClick={articleClickedHandler} className='articleLink' >
                                 <h3 className="articleTitle">{article.data.title}</h3>
                             </NavLink>    
-                                <video className="articleVideo" 
-                                    playsInline
+                                <div className="mediaContainer">
+                                    <video className="articleVideo" 
+                                        playsInline
+                                        
+                                        controls  
+                                        controlsList="nodownload noremoteplayback"
+                                        disablePictureInPicture
+                                        src={article.data.media.reddit_video.fallback_url}                
+                                    >
                                     
-                                    controls  
-                                    controlsList="nodownload noremoteplayback"
-                                    disablePictureInPicture
-                                    src={article.data.media.reddit_video.fallback_url}                
-                                >
-                                
-                                </video>
-                            </div>  
-                            <div className='articleWhitespaceBottom' >
-                                {/* style for whitespace so looks more appealing */}
-                            </div>                      
+                                    </video>
+                                </div>
+                            </div>                       
                     </div>
             );
         default:
             return (
-                <div>
+                <div className="failedToLoad">
                     Error Loading Article
                 </div>
             );
