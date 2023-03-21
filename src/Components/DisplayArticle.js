@@ -1,7 +1,23 @@
 import React from "react";
+import { routes } from "../App/routes";
+import { useDispatch, useSelector } from "react-redux";
+import { selectSubredditUrl,
+    loadSubredditArticles,
+    setSubredditUrlState
+} from "./displayPageSlice";
+import { NavLink } from "react-router-dom";
 
 
 export default function DisplayArticle({ article }) {
+
+    const dispatch = useDispatch();
+    const subredditUrl = useSelector(selectSubredditUrl);
+
+    const urlClickedHandler = (e) => {
+        dispatch(setSubredditUrlState(e.target.id));
+        dispatch(loadSubredditArticles(subredditUrl));
+    }
+    
 
     let typeOfArticle = 'image';
     if (article.data.is_video) {
@@ -26,7 +42,7 @@ export default function DisplayArticle({ article }) {
                 //-----display article with image-----
                     <div className="article">
                         <span className="articleSubAndAuthor">
-                           <a href={`https://www.reddit.com/${article.data.subreddit_name_prefixed}`}> {article.data.subreddit_name_prefixed}</a> : Posted by {article.data.author}
+                           <NavLink id={article.data.subreddit_name_prefixed} to={routes.displayPage()} onClick={urlClickedHandler} > {article.data.subreddit_name_prefixed} </NavLink> : Posted by {article.data.author}
                         </span>
                         <a href={`https://www.reddit.com${article.data.permalink}`} className='articleLink' >
                             <div>
@@ -45,7 +61,7 @@ export default function DisplayArticle({ article }) {
                 
                     <div className="article">
                         <span className="articleSubAndAuthor">
-                        <a href={`https://www.reddit.com/${article.data.subreddit_name_prefixed}`}> {article.data.subreddit_name_prefixed}</a> : Posted by {article.data.author}
+                        <NavLink id={article.data.subreddit_name_prefixed} to={routes.displayPage()} onClick={urlClickedHandler} > {article.data.subreddit_name_prefixed}</NavLink> : Posted by {article.data.author}
                         </span>
                         <a href={article.data.url} className='articleLink' >
                             <div>
@@ -63,7 +79,7 @@ export default function DisplayArticle({ article }) {
                 
                     <div className="article">
                         <span className="articleSubAndAuthor">
-                        <a href={`https://www.reddit.com/${article.data.subreddit_name_prefixed}`}> {article.data.subreddit_name_prefixed}</a> : Posted by {article.data.author}
+                        <NavLink id={article.data.subreddit_name_prefixed} to={routes.displayPage()} onClick={urlClickedHandler} > {article.data.subreddit_name_prefixed}</NavLink> : Posted by {article.data.author}
                         </span>            
                             <div>
                             <a href={article.data.url} className='articleLink' >

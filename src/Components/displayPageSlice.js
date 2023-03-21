@@ -2,15 +2,14 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 
 
-export const loadDisplayPageArticles = createAsyncThunk(
-    'home/loadDisplayPageArticles',
+export const loadSubredditArticles = createAsyncThunk(
+    'home/loadSubredditArticles',
     /*
         -fetch clicked on object
-        -name parameter better?
         ----------not finished/tested---------------
     */
-    async(clickedThing) => {
-        const response = await fetch(`https://www.reddit.com/${clickedThing}.json`)
+    async(subredditUrl) => {
+        const response = await fetch(`https://www.reddit.com/${subredditUrl}.json`)
         const data = await response.json();
         return data;
     }
@@ -20,37 +19,47 @@ export const loadDisplayPageArticles = createAsyncThunk(
 export const displayPageSlice = createSlice({
     name: 'displayPage',
     initialState: {
-        articles: ["test"],
+        displayPageArticles: [],
+        subredditUrl: "r/popular",
         isLoadingDisplayPageArticles: false,
         failedToLoadDisplayPageArticles: false
     },
-    reducers: {},
+    reducers: {
+        setSubredditUrlState(state, action) {
+            state.subredditUrl = action.payload;
+            console.log(action.payload);
+            //----------------------------------test with console.log-------------------------
+        }
+    },
     extraReducers: (builder) => {
         builder
-            .addCase(loadDisplayPageArticles.pending, (state) => {
+            .addCase(loadSubredditArticles.pending, (state) => {
                 state.isLoadingDisplayPageArticles = true;
                 state.failedToLoadDisplayPageArticles = false;
             })
-            .addCase(loadDisplayPageArticles.fulfilled, (state, action) => {
+            .addCase(loadSubredditArticles.fulfilled, (state, action) => {
                 state.isLoadingDisplayPageArticles = false;
                 state.failedToLoadDisplayPageArticles = false;
-                //------add article(s) from clicked thing-----------
-                state.articles.push(action.payload.data.children);
+                //------add article(s) from subreddit-----------
+                state.displayPageArticles = [];
+                state.displayPageArticles = action.payload.data.children;
                 //----------console logging to test and for info----------------
                 console.log(action.payload.data.children);
-                console.log('Fulfilled');
+                console.log('Fulfilled   DP');
             })
-            .addCase(loadDisplayPageArticles.rejected, (state) => {
+            .addCase(loadSubredditArticles.rejected, (state) => {
                 state.isLoadingDisplayPageArticles = false;
                 state.failedToLoadDisplayPageArticles = true;
-                state.articles = [];
+                state.displayPageArticles = [];
                 console.log('Failed');
             })
     }
 });
 
 
-export const selectdisplayPageArticles = (state) => state.displayPage.articles;
+export const selectDisplayPageArticles = (state) => state.displayPage.displayPageArticles;
+export const selectSubredditUrl = (state) => state.displayPage.subredditUrl;
 export const isLoadingDisplayPageArticles = (state) => state.displayPage.isLoadingDisplayPageArticles;
 export const failedToLoadDisplayPageArticles = (state) => state.displayPage.failedToLoadDisplayPageArticles;
+export const { setSubredditUrlState } = displayPageSlice.actions;
 export default displayPageSlice.reducer;

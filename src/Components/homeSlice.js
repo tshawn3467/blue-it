@@ -48,7 +48,7 @@ export const homeSlice = createSlice({
                 state.articles = action.payload.data.children;
                 //----------console logging to test and for info----------------
                 console.log(action.payload.data.children);
-                console.log('Fulfilled');
+                console.log('Fulfilled   HP');
             })
             .addCase(loadHomeArticles.rejected, (state) => {
                 state.isLoadingHomeArticles = false;

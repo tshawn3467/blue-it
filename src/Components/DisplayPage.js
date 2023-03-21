@@ -3,22 +3,34 @@ import DisplayArticle from "./DisplayArticle";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import {
-    selectdisplayPageArticles,
+    selectDisplayPageArticles,
     isLoadingDisplayPageArticles,
     failedToLoadDisplayPageArticles,
-    loadDisplayPageArticles
+    loadSubredditArticles,
+    selectSubredditUrl
 } from './displayPageSlice';
 
 
 export default function DisplayPage() {
 
     const dispatch = useDispatch();
-    const articles = useSelector(selectdisplayPageArticles);
+    const displayPageArticles = useSelector(selectDisplayPageArticles);
     const isLoading = useSelector(isLoadingDisplayPageArticles);
     const failedToLoad = useSelector(failedToLoadDisplayPageArticles);
-
+    const subredditUrl = useSelector(selectSubredditUrl);
 
     
+
+    
+    useEffect(() => {
+        if (displayPageArticles.length === 0) {
+        dispatch(loadSubredditArticles(subredditUrl));
+        }
+    }, [dispatch, displayPageArticles.length, subredditUrl]);
+    
+
+    console.log(subredditUrl);
+    console.log(displayPageArticles);
 
     if (isLoading) {
         return (
@@ -32,7 +44,8 @@ export default function DisplayPage() {
         )
     };
 
-    if (articles.length === 0) {
+    
+    if (displayPageArticles.length === 0) {
         return null;
     }
 
@@ -44,17 +57,18 @@ export default function DisplayPage() {
                     Display Page
                 </h1>
             </div>
-            {/*--------Not Working Yet -------------
             <div className="previewContainer">
-                {articles.map(article => {
+                
+                {displayPageArticles.map(article => {
                     return (
                         <div key={article.data.id} className="articleContainer">
                             <DisplayArticle article={article} />
                         </div>
                     )
                 })}
+                
             </div>
-            */}
+            
         </div>
     )
 }
