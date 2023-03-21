@@ -27,8 +27,7 @@ export const displayPageSlice = createSlice({
     reducers: {
         setSubredditUrlState(state, action) {
             state.subredditUrl = action.payload;
-            console.log(action.payload);
-            //----------------------------------test with console.log-------------------------
+            state.displayPageArticles = [];            
         }
     },
     extraReducers: (builder) => {
@@ -41,7 +40,6 @@ export const displayPageSlice = createSlice({
                 state.isLoadingDisplayPageArticles = false;
                 state.failedToLoadDisplayPageArticles = false;
                 //------add article(s) from subreddit-----------
-                state.displayPageArticles = [];
                 state.displayPageArticles = action.payload.data.children;
                 //----------console logging to test and for info----------------
                 console.log(action.payload.data.children);

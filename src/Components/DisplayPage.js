@@ -29,9 +29,6 @@ export default function DisplayPage() {
     }, [dispatch, displayPageArticles.length, subredditUrl]);
     
 
-    console.log(subredditUrl);
-    console.log(displayPageArticles);
-
     if (isLoading) {
         return (
             <div className="loading">Loading...</div>

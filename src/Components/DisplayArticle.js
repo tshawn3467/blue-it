@@ -1,21 +1,16 @@
 import React from "react";
 import { routes } from "../App/routes";
-import { useDispatch, useSelector } from "react-redux";
-import { selectSubredditUrl,
-    loadSubredditArticles,
-    setSubredditUrlState
-} from "./displayPageSlice";
+import { useDispatch } from "react-redux";
+import { setSubredditUrlState } from "./displayPageSlice";
 import { NavLink } from "react-router-dom";
 
 
 export default function DisplayArticle({ article }) {
 
     const dispatch = useDispatch();
-    const subredditUrl = useSelector(selectSubredditUrl);
 
     const urlClickedHandler = (e) => {
         dispatch(setSubredditUrlState(e.target.id));
-        dispatch(loadSubredditArticles(subredditUrl));
     }
     
 
