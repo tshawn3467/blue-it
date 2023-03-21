@@ -143,9 +143,22 @@ body {
 }
 
 .displayPageContainer {
+    position: relative;
+    top: 6.9rem;
+}
+
+.loading {
     display: flex;
     position: relative;
     top: 6.9rem;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-content: center;
+}
+
+.failedToLoad {
+    display: flex;
+    position: relative;
+    top: 6.9rem;
+    justify-content: center;
+    align-content: center;
 }

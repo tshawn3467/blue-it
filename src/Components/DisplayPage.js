@@ -1,5 +1,6 @@
 import React from "react";
 import DisplayArticle from "./DisplayArticle";
+import Comments from "./Comments";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import {
@@ -10,7 +11,9 @@ import {
     selectSubredditUrl,
     loadSearchResults,
     selectSearchTerm,
-    setSearchTermState
+    setSearchTermState,
+    loadComments,
+    selectComments
 } from './displayPageSlice';
 
 
@@ -22,12 +25,16 @@ export default function DisplayPage() {
     const failedToLoad = useSelector(failedToLoadDisplayPageArticles);
     const subredditUrl = useSelector(selectSubredditUrl);
     const searchTerm = useSelector(selectSearchTerm);
+    const comments = useSelector(selectComments);
     
 
     
     useEffect(() => {
         if (displayPageArticles.length === 0) {
-        dispatch(loadSubredditArticles(subredditUrl));
+            dispatch(loadSubredditArticles(subredditUrl));
+        }
+        if (displayPageArticles.length === 1) {
+            dispatch(loadComments());
         }
     }, [dispatch, displayPageArticles.length, subredditUrl]);
 
@@ -43,13 +50,21 @@ export default function DisplayPage() {
 
     if (isLoading) {
         return (
-            <div className="loading">Loading...</div>
+            <div className="loading">
+                <h1>
+                    Loading...
+                </h1>
+            </div>
         )
     };
 
     if (failedToLoad) {
         return (
-            <div className="failedToLoad">Something Went Wrong</div>
+            <div className="failedToLoad">
+                <h1>
+                    Something Went Wrong
+                </h1>
+            </div>
         )
     };
 
@@ -73,9 +88,19 @@ export default function DisplayPage() {
                         </div>
                     )
                 })}
+                {
+                    displayPageArticles.length === 1 ? (
+                        comments.map(comment => {
+                            return (
+                                <div key={comment.data.id} className="articleContainer">
+                                    <Comments comment={comment} />
+                                </div> 
+                            )
+                        })                        
+                    ) : (null)
+                }
                 
             </div>
-            
         </div>
     )
 }
