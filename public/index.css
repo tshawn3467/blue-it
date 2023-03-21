@@ -142,6 +142,10 @@ body {
     color: black;
 }
 
+.articleBody {
+    margin-bottom: .5rem;
+}
+
 .displayPageContainer {
     position: relative;
     top: 6.9rem;
@@ -153,6 +157,7 @@ body {
     top: 6.9rem;
     justify-content: center;
     align-content: center;
+    color: white;
 }
 
 .failedToLoad {
@@ -161,4 +166,32 @@ body {
     top: 6.9rem;
     justify-content: center;
     align-content: center;
+    color: white;
+}
+
+.commentContainer {
+    width: 50%;
+    min-width: 35.8rem;
+    margin-bottom: .625rem;
+    text-align: center;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.comment {
+    margin: .5rem;
+}
+
+.commentAuthor {
+    text-align: left;
+    color: blue;
+}
+
+.commentBodyContainer {
+    overflow-wrap: break-word;
+    border: 1px solid black;
+}
+
+.commentBody {
+    margin: .5rem;
 }

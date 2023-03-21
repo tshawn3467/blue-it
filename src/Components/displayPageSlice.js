@@ -14,7 +14,7 @@ export const loadSubredditArticles = createAsyncThunk(
 export const loadComments = createAsyncThunk(
     'displayPage/loadComments',
     async(commentsUrl) => {
-        const response = await fetch(`https://www.reddit.com/r/interestingasfuck/comments/11xb08u/george_w_bush_being_informed_about_the_911_attacks/.json`);
+        const response = await fetch(`https://www.reddit.com${commentsUrl}.json`);
         const data = await response.json();
         return data;
     }
@@ -47,6 +47,7 @@ export const displayPageSlice = createSlice({
             state.displayPageArticles = [];            
         },
         loadSingleArticle(state, action) {
+            state.commentsUrl = action.payload.data.permalink;
             state.displayPageArticles = [action.payload];
         },
         setSearchTermState(state, action) {

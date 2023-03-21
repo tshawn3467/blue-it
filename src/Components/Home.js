@@ -39,13 +39,19 @@ export default function Home() {
 
     if (isLoading) {
         return (
-            <div className="loading">Loading...</div>
+            <div className="loading">
+                <h1>Loading...</h1>
+            </div>
         )
     };
 
     if (failedToLoad) {
         return (
-            <div className="failedToLoad">Something Went Wrong</div>
+            <div className="failedToLoad">
+                <h1>
+                Something Went Wrong
+                </h1>
+            </div>
         )
     };
 

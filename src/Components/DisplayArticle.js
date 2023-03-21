@@ -44,7 +44,7 @@ export default function DisplayArticle({ article }) {
                            <NavLink id={article.data.subreddit_name_prefixed} to={routes.displayPage()} onClick={urlClickedHandler} > {article.data.subreddit_name_prefixed} </NavLink> : Posted by {article.data.author}
                         </span>
                         <NavLink to={routes.displayPage()} onClick={articleClickedHandler} className='articleLink' >
-                            <div>
+                            <div className="articleBody">
                                 <h3 className="articleTitle">{article.data.title}</h3>
                                 <img className="articleImage" src={article.data.thumbnail} alt="Not Found" ></img>
                             </div>
@@ -63,7 +63,7 @@ export default function DisplayArticle({ article }) {
                         <NavLink id={article.data.subreddit_name_prefixed} to={routes.displayPage()} onClick={urlClickedHandler} > {article.data.subreddit_name_prefixed}</NavLink> : Posted by {article.data.author}
                         </span>
                         <NavLink to={routes.displayPage()} onClick={articleClickedHandler} className='articleLink' >
-                            <div>
+                            <div className="articleBody">
                                 <h3 className="articleTitle">{article.data.title}</h3>
                             </div>
                             <div className='articleWhitespaceBottom' >
@@ -80,7 +80,7 @@ export default function DisplayArticle({ article }) {
                         <span className="articleSubAndAuthor">
                         <NavLink id={article.data.subreddit_name_prefixed} to={routes.displayPage()} onClick={urlClickedHandler} > {article.data.subreddit_name_prefixed}</NavLink> : Posted by {article.data.author}
                         </span>            
-                            <div>
+                            <div className="articleBody">
                             <NavLink to={routes.displayPage()} onClick={articleClickedHandler} className='articleLink' >
                                 <h3 className="articleTitle">{article.data.title}</h3>
                             </NavLink>    

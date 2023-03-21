@@ -13,7 +13,8 @@ import {
     selectSearchTerm,
     setSearchTermState,
     loadComments,
-    selectComments
+    selectComments,
+    selectCommentsUrl
 } from './displayPageSlice';
 
 
@@ -26,6 +27,7 @@ export default function DisplayPage() {
     const subredditUrl = useSelector(selectSubredditUrl);
     const searchTerm = useSelector(selectSearchTerm);
     const comments = useSelector(selectComments);
+    const commentsUrl = useSelector(selectCommentsUrl);
     
 
     
@@ -34,9 +36,9 @@ export default function DisplayPage() {
             dispatch(loadSubredditArticles(subredditUrl));
         }
         if (displayPageArticles.length === 1) {
-            dispatch(loadComments());
+            dispatch(loadComments(commentsUrl));
         }
-    }, [dispatch, displayPageArticles.length, subredditUrl]);
+    }, [dispatch, displayPageArticles.length, subredditUrl, commentsUrl]);
 
     const onClickSearch = () => {
         dispatch(loadSearchResults(searchTerm));
@@ -73,6 +75,7 @@ export default function DisplayPage() {
         return null;
     }
 
+
     return (
         <div className="displayPageContainer">
             <div className="searchBarContainer" >
@@ -80,7 +83,7 @@ export default function DisplayPage() {
                 <button className="searchButton" onClick={ onClickSearch }>Search</button>
             </div>
             <div className="previewContainer">
-                
+
                 {displayPageArticles.map(article => {
                     return (
                         <div key={article.data.id} className="articleContainer">
@@ -88,18 +91,17 @@ export default function DisplayPage() {
                         </div>
                     )
                 })}
-                {
-                    displayPageArticles.length === 1 ? (
+
+                {displayPageArticles.length === 1 ? ( 
                         comments.map(comment => {
                             return (
-                                <div key={comment.data.id} className="articleContainer">
+                                <div key={comment.data.id} className="commentContainer">
                                     <Comments comment={comment} />
                                 </div> 
                             )
                         })                        
                     ) : (null)
                 }
-                
             </div>
         </div>
     )

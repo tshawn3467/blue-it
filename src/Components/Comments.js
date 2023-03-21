@@ -4,7 +4,7 @@ import React from "react";
 export default function Comments({ comment }) {
 
     return (
-        <div className="commentContainer">
+        <div className="comment">
             <p className="commentAuthor">
                 {comment.data.author}
             </p>
