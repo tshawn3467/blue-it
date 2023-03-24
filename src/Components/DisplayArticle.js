@@ -46,9 +46,16 @@ export default function DisplayArticle({ article }) {
                         <NavLink to={routes.displayPage()} onClick={articleClickedHandler} className='articleLink' >
                             <div className="articleBody">
                                 <h3 className="articleTitle">{article.data.title}</h3>
-                                <div className="mediaContainer">
-                                    <img className="articleImage" src={article.data.url} alt="Not Found" ></img>
-                                </div>
+                                {/* logic to determine if article.data.url is .jpg or web url. Web url articles only have thumbnails */}
+                                {article.data.url.includes(".jpg") ? 
+                                    <div className="imageContainer">
+                                        <img className="articleImage" src={article.data.url} alt="Not Found" ></img> 
+                                    </div>
+                                    : 
+                                    <div className="thumbnailContainer">
+                                        <img className="articleImage" src={article.data.thumbnail} alt="Not Found" ></img>
+                                    </div>
+                                }                                
                             </div>
                         </NavLink>
                     </div>
@@ -80,7 +87,7 @@ export default function DisplayArticle({ article }) {
                             <NavLink to={routes.displayPage()} onClick={articleClickedHandler} className='articleLink' >
                                 <h3 className="articleTitle">{article.data.title}</h3>
                             </NavLink>    
-                                <div className="mediaContainer">
+                                <div className="videoContainer">
                                     <video className="articleVideo" 
                                         playsInline
                                         
