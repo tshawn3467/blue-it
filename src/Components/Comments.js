@@ -6,7 +6,7 @@ export default function Comments({ comment }) {
     return (
         <div className="comment">
             <p className="commentAuthor">
-                {comment.data.author}
+                <span id="commentPostedBy">Posted By: </span>{comment.data.author}
             </p>
             <div className="commentBodyContainer">
                 <p className="commentBody">

@@ -89,8 +89,7 @@ export default function DisplayArticle({ article }) {
                             </NavLink>    
                                 <div className="videoContainer">
                                     <video className="articleVideo" 
-                                        playsInline
-                                        
+                                        playsInline                                        
                                         controls  
                                         controlsList="nodownload noremoteplayback"
                                         disablePictureInPicture

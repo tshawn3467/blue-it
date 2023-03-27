@@ -156,7 +156,10 @@ body {
 }
 
 .articleBody {
+    display: flex;
     margin: 1rem;
+    flex-direction: column;
+    align-items: center;
 }
 
 .displayPageContainer {
@@ -180,6 +183,22 @@ body {
     justify-content: center;
     align-content: center;
     color: white;
+}
+
+.commentsSectionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.commentsTitle {
+    width: 50%;
+    min-width: 35.8rem;
+}
+
+#commentPostedBy {
+    color: black;
 }
 
 .commentContainer {

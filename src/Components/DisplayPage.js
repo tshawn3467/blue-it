@@ -91,7 +91,14 @@ export default function DisplayPage() {
                         </div>
                     )
                 })}
-
+            </div>
+            
+            <div className="commentsSectionContainer">
+                <div className="commentsTitle">
+                    <h2>
+                        Comments:
+                    </h2>
+                </div>
                 {displayPageArticles.length === 1 ? ( 
                         comments.map(comment => {
                             return (

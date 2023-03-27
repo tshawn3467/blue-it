@@ -12,6 +12,7 @@ export default function Header() {
 
     return (
         <div className="headerContainer">
+            {/* ----------Use Links??---------
             <ul className="headerLeft">
                 <NavLink to={routes.home()} className="navLink" >
                     <li className="headerListItem">
@@ -19,12 +20,14 @@ export default function Header() {
                     </li>
                 </NavLink>
             </ul>
+            */}
 
     {/* logo clickable to reload home page to original articles?? */}
             <NavLink to={routes.home()} className="navLink" onClick={dispatch(loadHomeArticles())} >
                 <img className="logo" src={require("../Data/BlueItLogo.png")} alt="Not Found" />
             </NavLink>
 
+            {/* -------Use Links??---------             
             <ul className="headerRight">
                 <NavLink to={routes.displayPage()} className="navLink">
                     <li className="headerListItem">
@@ -32,6 +35,7 @@ export default function Header() {
                     </li>
                 </NavLink>
             </ul>
+            */}
         </div>
     )
 }
