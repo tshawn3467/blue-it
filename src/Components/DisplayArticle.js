@@ -22,7 +22,7 @@ export default function DisplayArticle({ article }) {
     if (article.data.is_video) {
         typeOfArticle = 'video';
     };
-    if (article.data.is_self || article.data.thumbnail === 'default') {
+    if (article.data.is_self || article.data.thumbnail === 'default' || (article.data.thumbnail === '' && !article.data.url.includes('jpg'))) {
         typeOfArticle = 'self';
     };
 
