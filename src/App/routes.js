@@ -1,5 +1,5 @@
 const routes = {
-    home: () => "/",
+    home: () => "/blue-it",
     displayPage: () => "/DisplayPage",
 };
 

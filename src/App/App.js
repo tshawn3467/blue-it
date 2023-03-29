@@ -12,7 +12,7 @@ function App() {
       <Outlet />
 
       <Routes>
-        <Route index element={<Home />}></Route>
+        <Route path='/blue-it' element={<Home />}></Route>
         <Route path='/DisplayPage' element={<DisplayPage />}></Route>       
       </Routes>
     </Router>

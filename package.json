@@ -1,7 +1,7 @@
 {
   "name": "blue-it",
   "version": "0.1.0",
-  "homepage": "https://tshawn3467.github.io",
+  "homepage": "https://tshawn3467.github.io/blue-it",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
