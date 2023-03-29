@@ -253,3 +253,29 @@ body {
         min-width: 22.5rem;
     }
 }
+
+@media screen and (width < 380px) {
+    .articleContainer {
+        min-width: 20.5rem;
+    }
+
+    .homeContainer {
+        min-width: 21rem;
+    }
+
+    .searchBarContainer {
+        min-width: 20.5rem;
+    }
+
+    .commentsSectionContainer {
+        min-width: 21rem;
+    }
+
+    .commentContainer {
+        min-width: 20.5rem;
+    }
+
+    .commentsTitle {
+        min-width: 20.5rem;
+    }
+}
