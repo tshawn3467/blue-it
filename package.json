@@ -1,7 +1,7 @@
 {
   "name": "blue-it",
   "version": "0.1.0",
-  "homepage": "https://tshawn3467.github.io/blue-it",
+  "homepage": "https://tshawn3467.github.io",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
@@ -17,9 +17,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "start": "react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
