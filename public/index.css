@@ -228,3 +228,28 @@ body {
     margin: .5rem;
 }
 
+@media screen and (width < 420px) {
+    .articleContainer {
+        min-width: 22.5rem;
+    }
+
+    .homeContainer {
+        min-width: 23rem;
+    }
+
+    .searchBarContainer {
+        min-width: 22.5rem;
+    }
+
+    .commentsSectionContainer {
+        min-width: 23rem;
+    }
+
+    .commentContainer {
+        min-width: 22.5rem;
+    }
+
+    .commentsTitle {
+        min-width: 22.5rem;
+    }
+}
