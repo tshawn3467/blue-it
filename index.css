@@ -256,26 +256,26 @@ body {
 
 @media screen and (width < 380px) {
     .articleContainer {
-        min-width: 20.5rem;
+        min-width: 19.5rem;
     }
 
     .homeContainer {
-        min-width: 21rem;
+        min-width: 20rem;
     }
 
     .searchBarContainer {
-        min-width: 20.5rem;
+        min-width: 19.5rem;
     }
 
     .commentsSectionContainer {
-        min-width: 21rem;
+        min-width: 20rem;
     }
 
     .commentContainer {
-        min-width: 20.5rem;
+        min-width: 19.5rem;
     }
 
     .commentsTitle {
-        min-width: 20.5rem;
+        min-width: 19.5rem;
     }
 }
