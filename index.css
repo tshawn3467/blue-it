@@ -1,0 +1,230 @@
+body {
+    background-color: gray;
+}
+
+.headerContainer {
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 6rem;
+    background-color: white;
+    justify-content: space-evenly;
+    border-bottom: .25rem solid rgb(16, 19, 230);
+    border-top: .25rem solid rgb(16, 19, 230);
+    z-index: 10;
+}
+
+.headerLeft {
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.headerListItem {
+    list-style: none;
+    font-weight: bold;
+    color: rgb(16, 19, 230);
+    background-color: #7fd6ffd9;
+    width: 6.5rem;
+    padding: 1rem 0;
+    border: 2px solid black;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.navLink {
+    text-decoration: none;
+}
+
+.logo {
+    height: 6rem;
+}
+
+.headerRight {
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+    align-items: center;;
+}
+
+.homeContainer {
+    position: relative;
+    top: 6.9rem;
+}
+
+.titleContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 3rem;
+    position: relative;
+    top: 1rem;    
+}
+
+.title {
+    text-align: center;
+    color: black;
+    margin: 0;
+    width: 22%;
+    border: 1px solid black;
+    border-radius: 1rem;
+    background-color: white; 
+}
+
+.searchBarContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    position: relative;
+    top: 1rem;
+    flex-direction: column;
+    align-items: center; 
+    min-width: 35.8rem;
+}
+
+.searchBar {
+    text-align: center;
+    width: 20%;
+    min-width: 20rem;
+    height: 1.5rem;
+    margin: 0;
+    background-color: white;    
+}
+
+.searchButton {
+    border: 1px solid black;
+    border-radius: .5rem;
+    margin-top: .5rem;
+}
+
+.searchButton:hover {
+    cursor: pointer;
+}
+
+.searchButton:active {
+    background-color: rgb(201, 199, 199);
+}
+
+.previewContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.articleContainer {
+    width: 50%;
+    min-width: 35.8rem;
+    margin-bottom: .625rem;
+    text-align: center;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.imageContainer {
+    display: block;
+}
+
+.thumbnailContainer {
+    height: 8.5rem;
+    width: 12.75rem;
+}
+
+.videoContainer {
+    height: 25rem;
+}
+
+.articleImage {
+    height: 100%;
+    width: 100%;
+}
+
+.articleVideo {
+    height: 100%;
+    width: 100%;
+}
+
+.articleTitle {
+    padding: 0 1rem;
+}
+
+.articleLink {
+    text-decoration: none;
+    color: black;
+}
+
+.articleBody {
+    display: flex;
+    margin: 1rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.displayPageContainer {
+    position: relative;
+    top: 6.9rem;
+}
+
+.loading {
+    display: flex;
+    position: relative;
+    top: 6.9rem;
+    justify-content: center;
+    align-content: center;
+    color: white;
+}
+
+.failedToLoad {
+    display: flex;
+    position: relative;
+    top: 6.9rem;
+    justify-content: center;
+    align-content: center;
+    color: white;
+}
+
+.commentsSectionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.commentsTitle {
+    width: 50%;
+    min-width: 35.8rem;
+}
+
+#commentPostedBy {
+    color: black;
+}
+
+.commentContainer {
+    width: 50%;
+    min-width: 35.8rem;
+    margin-bottom: .625rem;
+    text-align: center;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.comment {
+    margin: .5rem;
+}
+
+.commentAuthor {
+    text-align: left;
+    color: blue;
+}
+
+.commentBodyContainer {
+    overflow-wrap: break-word;
+    border: 1px solid black;
+}
+
+.commentBody {
+    margin: .5rem;
+}
+

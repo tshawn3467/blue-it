@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/blue-it/static/css/main.e6c13ad2.css",
+    "main.js": "/blue-it/static/js/main.3791830e.js",
+    "static/media/BlueItLogo.png": "/blue-it/static/media/BlueItLogo.23d0a73f30ed4dc17e86.png",
+    "index.html": "/blue-it/index.html",
+    "main.e6c13ad2.css.map": "/blue-it/static/css/main.e6c13ad2.css.map",
+    "main.3791830e.js.map": "/blue-it/static/js/main.3791830e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.3791830e.js"
+  ]
+}
