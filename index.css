@@ -256,7 +256,7 @@ body {
 
 @media screen and (width < 380px) {
     body {
-        min-width: 20rem;
+        min-width: 23rem;
     }
     
     .articleContainer {
