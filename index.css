@@ -257,6 +257,9 @@ body {
 @media screen and (width < 380px) {
     .articleContainer {
         min-width: 19.5rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
     }
 
     .homeContainer {
@@ -265,6 +268,9 @@ body {
 
     .searchBarContainer {
         min-width: 19.5rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
     }
 
     .commentsSectionContainer {
@@ -273,9 +279,13 @@ body {
 
     .commentContainer {
         min-width: 19.5rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
     }
 
     .commentsTitle {
         min-width: 19.5rem;
     }
+    
 }
