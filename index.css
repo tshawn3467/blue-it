@@ -228,7 +228,7 @@ body {
     margin: .5rem;
 }
 
-@media screen and (width < 420px) {
+@media screen and (max-width < 420px) {
     .articleContainer {
         min-width: 22.5rem;
     }
@@ -254,11 +254,7 @@ body {
     }
 }
 
-@media screen and (width < 380px) {
-    body {
-        min-width: 23rem;
-    }
-    
+@media screen and (max-width < 380px) {    
     .articleContainer {
         min-width: 19.5rem;
     }
