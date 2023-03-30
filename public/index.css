@@ -228,7 +228,7 @@ body {
     margin: .5rem;
 }
 
-@media screen and (width < 420px) {
+@media screen and (max-device-width: 980px) {
     .articleContainer {
         min-width: 22.5rem;
     }
@@ -238,7 +238,7 @@ body {
     }
 
     .searchBarContainer {
-        min-width: 22.5rem;
+        min-width: 18rem;
     }
 
     .commentsSectionContainer {
@@ -252,4 +252,30 @@ body {
     .commentsTitle {
         min-width: 22.5rem;
     }
+}
+
+@media screen and (width < 670px) {    
+    .articleContainer {
+        min-width: 19.5rem;
+    }
+
+    .homeContainer {
+        min-width: 20rem;
+    }
+
+    .searchBarContainer {
+        min-width: 19.5rem;
+    }
+
+    .commentsSectionContainer {
+        min-width: 20rem;
+    }
+
+    .commentContainer {
+        min-width: 19.5rem;
+    }
+
+    .commentsTitle {
+        min-width: 19.5rem;
+    } 
 }
